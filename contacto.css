@@ -1,0 +1,16 @@
+*{
+    border: 2px solid rgba(0, 0, 0, 0);
+}
+.rye-regular {
+    font-family: "Rye", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+#titulo_h{
+display: flex;
+justify-content: center;
+font-family: "Rye", serif;
+font-size: 40px;
+color: #FAC706; 
+}

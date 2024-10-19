@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="estilom.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Imprima&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+
+    <script src="Pedidos/funcion.js" defer></script>
+    <script src="java/menuPrices.js"></script>
+
+    <style>
+        #cart {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 200px;
+            display: none;
+            z-index: 1000;
+        }
+
+        #clear-cart {
+            cursor: pointer;
+            position: absolute;
+            bottom: -20px;
+            right: 10px;
+            font-size: 20px;
+            color: black; 
+            padding: 5px;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        #clear-cart:hover {
+            background-color: rgba(200, 200, 200, 1);
+        }
+        #cart h3 {
+            margin: 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        #cart-items {
+            list-style: none;
+            padding: 0;
+            margin: 0; 
+        }
+        #cart-items li {
+            padding: 5px 0; 
+        }
+
+        .card {
+        position: relative;
+        cursor: pointer;
+        transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            border: 2px solid red;
+        }
+
+        .card-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .price {
+        font-weight: bold;
+        color: #333;
+        margin-top: 5px;
+        display: inline-block;
+    }
+
+    #buy-button {
+        display: block;
+        width: 200px;
+        padding: 10px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 5px;
+        position: fixed;
+        top: calc(20px + 300px);
+        right: 20px;
+    }
+
+    #buy-button:hover {
+        background-color: #218838;
+    }
+
+    </style>
+       
+</head>
+<body>
+
+    <header>
+        <img class="logo" src="Pedidos/imagenes/Logo Clemente a.png" alt="logo">
+        <button class="abrir" id="abrir"><i class="bi bi-list"></i></button>
+        <nav class="nav" id="nav">
+            <button class="cerrar" id="cerrar"><i class="bi bi-x"></i></button>
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="Pedidos/pedidos.html">Pedidos</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+            </ul> 
+        </nav>
+    </header>
+    <div class="slider">
+        <div class="slides">
+            <div class="slide active">
+                <img class="imgg" src="imgA/Katharsis.jpg" alt="katharsis">
+            </div>
+            <div class="slide">
+                <img src="imgA/img2.jpg" alt="Imagen 2">
+            </div>
+            <div class="slide">
+                <img src="imgA/img3.jpg" alt="Imagen 3">
+            </div>
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+
+    <div class="menu-title"><h1>MENÚ</h1></div>
+  
+    <div class="section-title"><h2>Platillos Salados</h2></div>
+<div class="items">
+    <div class="card" onclick="addToCart('Chilaquiles')">
+        <div class="card-image"><img src="imgA/chilaquiles.jpg" alt="chilaquiles"></div>
+        <div class="card-text">
+            <b>Chilaquiles</b><br>
+            Totopos bañados en salsa, acompañados de pollo desmenuzado, crema, queso fresco y cebolla morada.<br>
+            <span class="price">$80.00</span>
+        </div>
+    </div>
+    <div class="card" onclick="addToCart('Enchiladas')">
+        <div class="card-image"><img src="imgA/enchiladas.jpg" alt="enchiladas"></div>
+        <div class="card-text">
+            <b>Enchiladas</b><br>
+            Enchiladas rellenas de pollo, bañadas en salsa verde de tomatillo, con crema y queso.<br>
+            <span class="price">$90.00</span>
+        </div>
+    </div>
+    <div class="card" onclick="addToCart('Quesadillas')">
+        <div class="card-image"><img src="imgA/quesadillas.jpg" alt="quesadillas"></div>
+        <div class="card-text">
+            <b>Quesadillas</b><br>
+            Tortillas de maíz rellenas de queso, acompañadas de guiso del día y salsa verde.<br>
+            <span class="price">$50.00</span>
+        </div>
+    </div>
+    <div class="card" onclick="addToCart('Tamal de rajas')">
+        <div class="card-image"><img src="imgA/tamalr.jpg" alt="tamal de rajas"></div>
+        <div class="card-text">
+            <b>Tamal de rajas</b><br>
+            Tamales rellenos de tiras de chile poblano y queso fresco, envueltos en hojas de maíz.<br>
+            <span class="price">$25.00</span>
+        </div>
+    </div>
+    <div class="card" onclick="addToCart('Tamal de rojo')">
+        <div class="card-image"><img src="imgA/tamalrj.jpg" alt="tamal de rojo"></div>
+        <div class="card-text">
+            <b>Tamal de rojo</b><br>
+            Tamales de carne de cerdo marinada en salsa de chile rojo.<br>
+            <span class="price">$25.00</span>
+        </div>
+    </div>
+    <div class="card" onclick="addToCart('Tamal de elote')">
+        <div class="card-image"><img src="imgA/tamale.jpg" alt="tamal de elote"></div>
+        <div class="card-text">
+            <b>Tamal de elote</b><br>
+            Tamales dulces de elote fresco, ideales para acompañar con café o chocolate caliente.<br>
+            <span class="price">$30.00</span>
+        </div>
+    </div>
+</div>
+
+<div class="section-title"><h2>Postres</h2></div>
+<div class="items">
+    <div class="card" onclick="addToCart('Conchas')">
+        <div class="card-image"><img src="imgA/conchas.jpg" alt="conchas"></div>
+        <div class="card-text">
+            <b>Conchas</b><br>
+            Pan dulce con una capa crujiente de azúcar, ideal para acompañar con café.<br>
+            <span class="price">$20.00</span>
+        </div>
+    </div>
+    <div class="card" onclick="addToCart('Churros')">
+        <div class="card-image"><img src="imgA/churros.jpg" alt="churros"></div>
+        <div class="card-text">
+            <b>Churros</b><br>
+            Churros crujientes espolvoreados con azúcar y canela, perfectos para acompañar con chocolate caliente.<br>
+            <span class="price">$25.00</span>
+        </div>
+    </div>
+    <div class="card" onclick="addToCart('Arroz con leche')">
+        <div class="card-image"><img src="imgA/arrozcl.jpg" alt="arroz con leche"></div>
+        <div class="card-text">
+            <b>Arroz con leche</b><br>
+            Arroz cocido en leche con un toque de canela, servido frío o tibio.<br>
+            <span class="price">$15.00</span>
+        </div>
+    </div>
+    <div class="card" onclick="addToCart('Pan de muerto')">
+        <div class="card-image"><img src="imgA/panmuerto.jpg" alt="Pan de muerto"></div>
+        <div class="card-text">
+            <b>Pan de muerto</b><br>
+            Pan tradicional de Día de Muertos, cubierto de azúcar y aromatizado con azahar.<br>
+            <span class="price">$35.00</span>
+        </div>
+    </div>
+    <div class="card" onclick="addToCart('Capirotada')">
+        <div class="card-image"><img src="imgA/capirotada.jpg" alt="capirotada"></div>
+        <div class="card-text">
+            <b>Capirotada</b><br>
+            Postre con pan, pasas, nueces y piloncillo, típico de la cuaresma.<br>
+            <span class="price">$40.00</span>
+        </div>
+    </div>
+    <div class="card" onclick="addToCart('Nieve')">
+        <div class="card-image"><img src="imgA/helado.jpg" alt="helado"></div>
+        <div class="card-text">
+            <b>Nieve</b><br>
+            Deliciosas nieves tradicionales de diversos sabores, ideales para refrescarse en cualquier momento.<br>
+            <span class="price">$30.00</span>
+        </div>
+    </div>
+</div>
+
+<div class="section-title"><h2>Bebidas</h2></div>
+<div class="items">
+    <div class="card" onclick="addToCart('Café de olla')">
+        <div class="card-image"><img src="imgA/cafe.jpg" alt="cafe de olla"></div>
+        <div class="card-text">
+            <b>Café de olla</b><br>
+            Café preparado con canela, clavo y piloncillo, servido caliente o frío.<br>
+            <span class="price">$35.00</span>
+        </div>
+    </div>
+    <div class="card" onclick="addToCart('Chocolate Caliente')">
+        <div class="card-image"><img src="imgA/chocolate.jpg" alt="chocolate caliente"></div>
+        <div class="card-text">
+            <b>Chocolate Caliente</b><br>
+            Chocolate espeso con un toque de canela, estilo tradicional mexicano.<br>
+            <span class="price">$40.00</span>
+        </div>
+    </div>
+    <div class="card" onclick="addToCart('Horchata')">
+        <div class="card-image"><img src="imgA/horchata.jpg" alt="horchata"></div>
+        <div class="card-text">
+            <b>Horchata</b><br>
+            Bebida de arroz con canela y vainilla, perfecta para cualquier momento.<br>
+            <span class="price">$25.00</span>
+        </div>
+    </div>
+    <div class="card" onclick="addToCart('Aguas frescas')">
+        <div class="card-image"><img src="imgA/aguas.jpg" alt="aguas frescas"></div>
+        <div class="card-text">
+            <b>Aguas frescas</b><br>
+            Agua fresca hecha al momento con frutas de temporada.<br>
+            <span class="price">$20.00</span>
+        </div>
+    </div>
+    <div class="card" onclick="addToCart('Té de manzanilla')">
+        <div class="card-image"><img src="imgA/te.jpg" alt="te de manzanilla"></div>
+        <div class="card-text">
+            <b>Té de manzanilla</b><br>
+            Té herbal con un toque suave, perfecto para relajarse.<br>
+            <span class="price">$15.00</span>
+        </div>
+    </div>
+    <div class="card" onclick="addToCart('Champurrado')">
+        <div class="card-image"><img src="imgA/champurrado.jpg" alt="champurrado"></div>
+        <div class="card-text">
+            <b>Champurrado</b><br>
+            Bebida espesa de chocolate con maíz, ideal para días frescos.<br>
+            <span class="price">$35.00</span>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Contenedor del carrito de compras -->
+    <div id="cart">
+        <span id="clear-cart" onclick="clearCart()">
+            <i class="bi bi-x"></i>
+        </span>
+        <h3>Carrito de Compras</h3>
+        <ul id="cart-items"></ul>
+    </div>
+    <button id="buy-button" onclick="redirectToOrders()">Comprar</button> 
+    
+    <script>
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || {};
+    
+        function addToCart(item) {
+            const cart = document.getElementById('cart');
+            cart.style.display = 'block';
+    
+            if (cartItems[item]) {
+                cartItems[item] += 1;
+            } else {
+                cartItems[item] = 1;
+            }
+    
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    
+            updateCartDisplay();
+        }
+    
+        function updateCartDisplay() {
+        const cartList = document.getElementById('cart-items');
+        cartList.innerHTML = '';
+
+        for (const item in cartItems) {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${item} x ${cartItems[item]}`;
+            cartList.appendChild(listItem);
+        }
+
+        const buyButton = document.getElementById('buy-button');
+        if (Object.keys(cartItems).length > 0) {
+            buyButton.style.display = 'block';
+        } else {
+            buyButton.style.display = 'none';
+        }
+    }
+    
+        function clearCart() {
+            for (const item in cartItems) {
+                delete cartItems[item];
+            }
+            localStorage.removeItem('cartItems');
+            document.getElementById('cart-items').innerHTML = '';
+            document.getElementById('cart').style.display = 'none';
+        }
+    
+        window.onload = function() {
+            updateCartDisplay();
+            if (Object.keys(cartItems).length > 0) {
+                document.getElementById('cart').style.display = 'block';
+            }
+        }
+
+        function redirectToOrders() {
+    
+        window.location.href = "Pedidos/pedidos.html";
+        }
+
+
+    </script>
+    
+    <footer class="footer"> 
+        <ul class="menu">
+            <li class="menu-elem"><a href="" class="menu-icon">Contacto</a></li>
+            <li class="menu-elem"><a href="" class="menu-icon">Políticas de privacidad</a></li>
+            <li class="menu-elem"><a href="" class="menu-icon">Cookies</a></li>
+        </ul>
+        <ul class="social-icon">
+            <li class="icon-elem"><a href="" class="icon"><ion-icon name="logo-instagram"></ion-icon></a></li>
+            <li class="icon-elem"><a href="" class="icon"><ion-icon name="logo-facebook"></ion-icon></a></li>
+            <li class="icon-elem"><a href="" class="icon"><ion-icon name="logo-tiktok"></ion-icon></a></li>
+        </ul>  
+    </footer>
+</body>
+<script src="java/script.js"></script>
+</html>

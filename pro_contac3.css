@@ -1,0 +1,105 @@
+
+
+#cues{
+    width: 100%;
+    border: solid #000000 2px;
+    background-color: #ff00c300;
+    display: flex;
+    border-radius: 8px; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+}
+#nombre{
+    width: 80%; 
+    font-size: 17px;
+    border: solid #000000 2px;
+}
+#nombre:focus{
+    color: #000000;
+}
+#apellido{
+    font-size: 17px;
+    width: 80%;
+    border: solid #000000 2px;
+}
+#apellido:focus{
+    color: #000000;
+}
+#correo{
+    width: 100%;
+    font-size: 17px;
+    border: solid #000000 2px;
+}
+#correo:focus{
+    color: #000000;
+
+}
+#mensaje{
+   width: 100%;
+   font-size: 17px;
+   border: solid #000000 2px;
+}
+#mensaje:focus{
+    color: #000000;
+
+}
+#tel{
+    width: 50%;
+    font-size: 17px;
+    border: solid #000000 2px;
+    margin-bottom: 15px;
+}
+#tel:focus{
+    color: #000000;
+
+}
+input::placeholder{
+color: #000000;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+textarea {
+    width: 25%;
+    padding: 5px;
+    margin-bottom: 2px;
+    font-size: 17px;
+    color: #010000;
+    margin: 0;
+}
+
+
+input[type="submit"] {
+    background-color: #ff00c3;
+    color: #fff200;
+    padding: 10px 20px;
+    position: absolute;
+    right: 140px;
+    bottom: -120px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color:#d2cdcd;
+}
+
+#cuesto{
+display: flex;
+flex-direction: column;
+margin: 0;
+}
+
+
+
+
+ 
+h1{
+    font-size: 100px;
+    color: #070600;   
+}
+
+

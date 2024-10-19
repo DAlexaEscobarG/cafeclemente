@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contacto</title>
+    <link rel="stylesheet" href="eventos_css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="css/estilo.css">
+<link rel="stylesheet" href="Pedidos/css/estilo.css">
+<script src="Pedidos/funcion.js" defer></script>
+<link rel="stylesheet" href="estilom.css">
+<script src="funcion.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="contacto.css">
+<link rel="stylesheet" href="pro_contac3.css">
+</head>
+
+<body>
+    <header>
+        <img class="logo" src="img/logoA.png" alt="logo">
+        <button class="abrir" id="abrir"><i class="bi bi-list"></i></button>
+        <nav class="nav" id="nav">
+            <button class="cerrar" id="cerrar"><i class="bi bi-x"></i></button>
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="Pedidos/pedidos.html">Pedidos</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+            </ul> 
+        </nav>
+    </header>
+
+
+
+
+    <section id="titulo_h">Contactanos</section>
+   
+    <section id="cues">
+       <form action="enviado.php" method="post" id="cuesto">
+           <label for="nombre"> </label>
+           <input type="text" id="nombre" placeholder="Nombre"><br><br>
+     
+           <label for="apellido"></label>
+           <input type="text" name=" apellido" id="apellido" placeholder="apellido"> <br><br>
+   
+           <label for="telefono"></label>
+           <input type="tel" name="tel" placeholder="telefono" pattern="[0-9]{10}" required id="tel">
+   
+           <label for="correo"></label>
+           <input type="email" name="email" id="correo" placeholder="correo electronico"> <br><br>
+   
+           <label for="mensaje"></label>
+           <textarea name="mensaje"  id="mensaje" cols="30" rows="10" placeholder="comentario"></textarea> <br><br>
+           
+           <input type="submit" value="envia"> <br><br>
+           
+   
+       </form>
+
+      </section>
+
+
+
+
+
+
+
+
+
+
+       <!--  -->
+
+    <footer class="footer"> 
+        <ul class="menu">
+            <li class="menu-elem"><a href="" class="menu-icon">Contacto</a></li>
+            <li class="menu-elem"><a href="" class="menu-icon">Politicas de privacidad</a></li>
+            <li class="menu-elem"><a href="" class="menu-icon">Cookies</a></li>
+        </ul>
+        <ul class="social-icon">
+            <li class="icon-elem"><a href="" class="icon"><ion-icon name="logo-instagram"></ion-icon></a></li>
+    
+            <li class="icon-elem"><a href="" class="icon"><ion-icon name="logo-facebook"></ion-icon></a></li>
+    
+            <li class="icon-elem"><a href="" class="icon"><ion-icon name="logo-tiktok"></ion-icon></a></li>
+        </ul>  
+    </footer> 
+    
+    </html>

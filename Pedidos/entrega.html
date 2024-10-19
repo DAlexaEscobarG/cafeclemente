@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrega</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/mystyle.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Imprima&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <script src="funcion.js" defer></script>
+    <script src="../java/script.js"></script>
+    <script src="../java/menuPrices.js"></script>
+</head>
+<body>
+    <header>
+        <img class="logo" src="imagenes/Logo Clemente a.png" alt="logo">
+        <button class="abrir" id="abrir"><i class="bi bi-list"></i></button>
+        <nav class="nav" id="nav">
+            <button class="cerrar" id="cerrar"><i class="bi bi-x"></i></button>
+            <ul class="nav-list">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../contacto.html">Contacto</a></li>
+                <li><a href="../menu.html">Menu</a></li>
+                <li><a href="pedidos.html">Pedidos</a></li>
+                <li><a href="../eventos.html">Eventos</a></li>
+            </ul> 
+        </nav>
+    </header>
+    <section>
+        <h1 class="menu-title">Pedidos</h1>
+        <br>
+        <h2 class="section-title">Entrega</h2>
+        <section class="image-container">
+            <div class="image-wrapper">
+                <img src="imagenes/Asset 1-100.jpg" alt="tienda" class="image-left">
+                <button class="btn" id="recoger-tienda" onclick="seleccionarMetodo('tienda')">Recoger en tienda</button>
+            </div>
+            <br>
+            <div class="image-wrapper">
+                <img src="imagenes/Asset 2-100.jpg" alt="domicilio" class="image-right">
+                <button class="btn" id="entrega-domicilio" onclick="seleccionarMetodo('domicilio')">Entrega a domicilio</button>
+            </div>
+        </section>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        const orderSummary = JSON.parse(localStorage.getItem('orderSummary')) || [];
+        const totalPrice = localStorage.getItem('totalPrice') || '0.00';
+        const orderSummaryElement = document.getElementById('order-summary-display');
+
+        if (orderSummary.length > 0) {
+            orderSummaryElement.innerHTML = orderSummary.join('<br>');
+        }
+
+        document.getElementById('total-price-display').textContent = `Total a pagar: $${totalPrice}`;
+    });
+
+    function seleccionarMetodo(metodo) {
+        localStorage.setItem('metodoEntrega', metodo);
+
+        window.location.href = 'pago.html';
+    }
+
+
+    </script>
+
+    <footer class="footer"> 
+        <ul class="menu">
+            <li class="menu-elem"><a href="" class="menu-icon">Contacto</a></li>
+            <li class="menu-elem"><a href="" class="menu-icon">Politicas de privacidad</a></li>
+            <li class="menu-elem"><a href="" class="menu-icon">Cookies</a></li>
+        </ul>
+        <ul class="social-icon">
+            <li class="icon-elem"><a href="" class="icon"><ion-icon name="logo-instagram"></ion-icon></a></li>
+
+            <li class="icon-elem"><a href="" class="icon"><ion-icon name="logo-facebook"></ion-icon></a></li>
+
+            <li class="icon-elem"><a href="" class="icon"><ion-icon name="logo-tiktok"></ion-icon></a></li>
+        </ul>  
+    </footer>
+</body>
+</html>

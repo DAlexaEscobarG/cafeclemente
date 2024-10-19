@@ -1,0 +1,218 @@
+* {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.slider {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+}
+
+img {
+    width: 100%;
+    height: 200px;
+}
+
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #d9401682;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+}
+
+nav img{
+    width: 100px;
+    height: 100px;
+    background-color: #D93F16;
+}
+
+.noso, .vis, .persona {
+    margin: 20px;
+}
+
+
+.noso p{
+    background-color: #39A28D;
+}
+
+.noso .logo{
+    display: flex;
+    width: 100%;
+    height: 20%;
+    padding: 10px;
+}
+
+.logo img{
+    background-color: #D93F16;
+    border-radius: 20px;
+    width: 20%;
+}
+
+.vis h1{
+    background-color: #5B114A;
+    width:100%;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+}
+
+.ubi h1 {
+    background-color: #D93F16;
+    width: 400px;
+    padding: 10px;
+    text-align: center;
+}
+
+.persona {
+    width: 100%;
+    height: 200px;    
+}
+
+.foto { 
+    width: 20%;
+    height: auto;
+    float: left;
+    margin-left: 20px;
+    border-radius: 20px;
+}
+
+.foto2 { 
+    width: 20%;
+    height: auto;
+    float: right;
+    margin-right: 20px;
+    border-radius: 20px;
+}
+
+.texto {
+    width: 80%;
+    height: 200px; 
+    background-color: #5B114A; 
+}
+
+.texto2 {
+    width: 80%;
+    height: 200px; 
+    background-color: #5B114A;  
+    margin-left: 20%;
+}
+
+p, h1 {
+    color: #FAC706;
+    padding: 20px;
+}
+
+h1 {
+    background-color: #39A28D;
+    font-size: 50px;
+}
+
+.sobre {
+    margin-left: 70px;
+    text-align: center;
+    width: 100%;
+    border-radius: 30px;
+}
+
+.ubi {
+    margin: 20px;
+}
+
+.ubi img{
+    height: 500px;
+    width: 90%;
+    display: flex;
+    text-align: center;
+}
+
+@media screen and (max-width: 780px) {
+    header {
+        justify-content: space-between;
+    }
+
+    .logo {
+        width: 15%;
+        margin-right: 5%;
+    }
+
+    .abrir {
+        display: block;
+        border: 0;
+        background-color: transparent;
+        cursor: pointer;
+        float: right;
+        width: 100px;
+    }
+
+    .cerrar {
+        display: block;
+        border: 0;
+        font-size: 1.25rem;
+        background-color: transparent;
+        cursor: pointer;
+        color: whitesmoke;
+    }
+
+    .bi-list{
+        margin-left: 100px;
+    }
+
+    .nav {
+        opacity: 0;
+        visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        gap: 1.5rem;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        padding: 2rem;
+        background-color: black;
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
+    }
+    .visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: end;
+        margin-left: 0;
+    }
+
+    .nav-list li a {
+        color: whitesmoke;
+    }
+}

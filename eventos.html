@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eventos</title>
+    <link rel="stylesheet" href="eventos_css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="css/estilo.css">
+<link rel="stylesheet" href="Pedidos/css/estilo.css">
+<script src="Pedidos/funcion.js" defer></script>
+<link rel="stylesheet" href="estilom.css">
+<script src="funcion.js" defer></script>
+
+
+
+</head>
+
+<body>
+    <header>
+        <img class="logo" src="img/logoA.png" alt="logo">
+        <button class="abrir" id="abrir"><i class="bi bi-list"></i></button>
+        <nav class="nav" id="nav">
+            <button class="cerrar" id="cerrar"><i class="bi bi-x"></i></button>
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="Pedidos/pedidos.html">Pedidos</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+            </ul> 
+        </nav>
+    </header>
+
+  <!--<article class="imgrota">
+   zona de cambio de imagenes 
+    <style>
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+    
+        .contenedor {
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            margin: 20px auto; 
+        }
+    
+        button {
+            width: 50px; 
+            height: 50px; 
+            margin: 0 10px; 
+            padding: 0; 
+            border: none; 
+            border-radius: 50%; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            background-color: rgb(183, 179, 179); 
+            color: white; 
+            font-size: 16px; 
+            cursor: pointer; 
+        }
+    </style>
+</head>
+<body>
+
+    <img id="imagen" src="imagenes/letrero_a.png" alt="Imagen aleatoria">
+    
+    <div class="contenedor"> //Contenedor para los botones 
+        <button onclick="cambiarImagen()"> 
+            <img src="imagenes/1x/flecha_d.png" alt="flecha_d" width="50%">
+        </button>
+        <button onclick="cambiarImagen()">
+            <img src="imagenes/1x/flecha_z.png" alt="flecha_z" width="50%">
+        </button>
+    </div>
+    <script>
+        const imagenes = [
+            'imagenes/letrero_a.png',
+            'imagenes/ima_r1.png',
+            'imagenes/ima_r2.png',
+        ];
+
+        let indiceActual = 0; // Indice para llevar el seguimiento de la imagen actual
+
+        function cambiarImagen() {
+            indiceActual = (indiceActual + 1) % imagenes.length; // Incrementar índice y hacer loop
+            document.getElementById('imagen').src = imagenes[indiceActual];
+        }
+
+        // Cambiar imagen automáticamente cada 5 segundos
+        setInterval(cambiarImagen, 5000);
+    </script>
+</article> -->
+<div class="slider">
+    <div class="slides">
+        <div class="slide active">
+            <img src="imagenes/letrero_a.png" alt="Imagen 1">
+        </div>
+        <div class="slide">
+            <img src="imagenes/ima_1.jpg" alt="Imagen 2">
+        </div>
+        <div class="slide">
+            <img src="imagenes/quesadilla.jpg" alt="Imagen 3">
+        </div>
+    </div>
+    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="next" onclick="moveSlide(1)">&#10095;</button>
+</div>
+
+
+
+<legend class="titulo_a">
+    <p class="titulos_a"> De temporada </p>
+</legend>
+
+
+<section class="caja1_a">
+   <figure class="imapromo1_a" id="aju1_a"> </figure>
+    <div class="comentario_a"> <p id="letra"><b>Dia de los muertos</b></p> <br><br>
+                             <p id="letra"><b>ofrendas artisticas con elementos del muralismo mexicano</b></p>
+                             <div class="boton_a"> <p id="letra">2 nov</p></div>
+    </div>
+</section>
+
+<section class="caja1_a">
+    <figure class="imapromo1_a" id="aju2_a"></figure>
+     <div class="comentario_a"><p id="letra"><b>Dia internacional del cafe</b></p> <br><br>
+                              <p id="letra"><b>Degustacion de cafes mexicanos y bebidas especiales</b></p>
+                              <div class="boton_a"> <p id="letra">1 oct</p></div>
+     </div>
+ </section>
+
+
+ <legend class="titulo_a">
+    <p class="titulos_a"> Del dia </p>
+ </legend>
+
+
+
+
+
+ <section class="caja1_a" id="apa">
+    <figure class="imapromo1_a" id="aju3_a"></figure>
+     <div class="comentario_a"><p id="letra"><b>Martes de muralismo</b></p> <br><br>
+                              <p id="letra" class="acomodo"><b>Cada martes, una seccion de la cafeteria puede tener una nueva obra de 
+                                muralismo o ilustraciones locales. los clientes pueden votar por sus obras
+                                favoritas y ganar descuentos</b></p>
+                              <div class="boton_a"> <p id="letra">martes</p></div>
+     </div>
+
+ </section>
+
+ <section class="caja1_a" id="apa">
+    <figure class="imapromo1_a" id="aju4_a"></figure>
+     <div class="comentario_a"><p id="letra"><b>Sabado artistico</b></p> <br><br>
+                             <p id="letra"> <b>Un taller corto para niños y adultos en la cafeteria sobre
+                                como hacer arte inspirado en el muralesmo mexicano, usando tecnicas simples 
+                                y materiales accsibles. promociones exclusivas y venta de productos de cafe artesanal</b> 
+                             </p>
+     <div class="boton_a"><p id="letra">sabado</p></div>
+    </div>
+ </section>
+
+
+    
+</body>
+
+<footer class="footer"> 
+    <ul class="menu">
+        <li class="menu-elem"><a href="" class="menu-icon">Contacto</a></li>
+        <li class="menu-elem"><a href="" class="menu-icon">Politicas de privacidad</a></li>
+        <li class="menu-elem"><a href="" class="menu-icon">Cookies</a></li>
+    </ul>
+    <ul class="social-icon">
+        <li class="icon-elem"><a href="" class="icon"><ion-icon name="logo-instagram"></ion-icon></a></li>
+
+        <li class="icon-elem"><a href="" class="icon"><ion-icon name="logo-facebook"></ion-icon></a></li>
+
+        <li class="icon-elem"><a href="" class="icon"><ion-icon name="logo-tiktok"></ion-icon></a></li>
+    </ul>  
+</footer>
+
+
+<script src="java/script.js"></script>
+</html>

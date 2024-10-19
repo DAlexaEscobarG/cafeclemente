@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Pedidos </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/mystyle.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Imprima&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <script src="funcion.js" defer></script>
+    <script src="../java/script.js"></script>
+    <script src="../java/menuPrices.js"></script>
+</head>
+<body>
+    <header>
+        <img class="logo" src="imagenes/Logo Clemente a.png" alt="logo">
+        <button class="abrir" id="abrir"><i class="bi bi-list"></i></button>
+        <nav class="nav" id="nav">
+            <button class="cerrar" id="cerrar"><i class="bi bi-x"></i></button>
+            <ul class="nav-list">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../contacto.html">Contacto</a></li>
+                <li><a href="../menu.html">Menu</a></li>
+                <li><a href="pedidos.html">Pedidos</a></li>
+                <li><a href="../eventos.html">Eventos</a></li>
+            </ul> 
+        </nav>
+    </header>
+    <section>
+        <h1 class="menu-title">Pedidos</h1>
+        <br>
+        <h2 class="section-title">Confirmación</h2>
+        
+        <section id="order-summary">
+            <h3>Resumen de tu Pedido</h3>
+            <ul id="order-items"></ul>
+            <h3 id="total-price"></h3>
+
+            <a href="entrega.html" class="btn-delivery">Seleccionar método de entrega</a>
+        </section>
+    </section>
+
+    <section id="order-summary-display"></section>
+    <h3 id="total-price-display"></h3>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || {};
+        const orderItemsList = document.getElementById('order-items');
+        const totalPriceElement = document.getElementById('total-price');
+
+        let totalPrice = 0;
+        const orderSummary = [];
+
+        for (const item in cartItems) {
+            const quantity = cartItems[item];
+            const price = menuPrices[item];
+            const itemTotal = price * quantity;
+
+            totalPrice += itemTotal;
+            orderSummary.push(`${item} x ${quantity} - $${price.toFixed(2)} (Total: $${itemTotal.toFixed(2)})`);
+
+            const listItem = document.createElement('li');
+            listItem.textContent = `${item} x ${quantity} - $${price.toFixed(2)} (Total: $${itemTotal.toFixed(2)})`;
+            orderItemsList.appendChild(listItem);
+        }
+
+        totalPriceElement.textContent = `Total a pagar: $${totalPrice.toFixed(2)}`;
+    
+    // Guardar el resumen en localStorage
+        localStorage.setItem('orderSummary', JSON.stringify(orderSummary));
+        localStorage.setItem('totalPrice', totalPrice.toFixed(2));
+    });
+    </script>
+    
+    <footer class="footer"> 
+        <ul class="menu">
+            <li class="menu-elem"><a href="" class="menu-icon">Contacto</a></li>
+            <li class="menu-elem"><a href="" class="menu-icon">Politicas de privacidad</a></li>
+            <li class="menu-elem"><a href="" class="menu-icon">Cookies</a></li>
+        </ul>
+        <ul class="social-icon">
+            <li class="icon-elem"><a href="" class="icon"><ion-icon name="logo-instagram"></ion-icon></a></li>
+
+            <li class="icon-elem"><a href="" class="icon"><ion-icon name="logo-facebook"></ion-icon></a></li>
+
+            <li class="icon-elem"><a href="" class="icon"><ion-icon name="logo-tiktok"></ion-icon></a></li>
+        </ul>  
+    </footer>
+</body>
+<script src="java/script.js"></script>
+</html>
